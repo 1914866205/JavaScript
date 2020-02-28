@@ -1,0 +1,78 @@
+.list {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  background-color: #dddddd;
+  list-style-type: none;
+}
+
+.item:nth-child(1) {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#ec407a), to(#f6f6f6));
+  background-image: linear-gradient(to top right, #ec407a, #f6f6f6);
+  color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+}
+
+.item:nth-child(2) {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#34cedf), to(#f6f6f6));
+  background-image: linear-gradient(to top right, #34cedf, #f6f6f6);
+  color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+}
+
+.item:nth-child(3) {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#e44d26), to(#f6f6f6));
+  background-image: linear-gradient(to top right, #e44d26, #f6f6f6);
+  color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+}
+
+.item:nth-child(4) {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#009688), to(#f6f6f6));
+  background-image: linear-gradient(to top right, #009688, #f6f6f6);
+  color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+}
+
+.item:nth-child(5) {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#b162a5), to(#f6f6f6));
+  background-image: linear-gradient(to top right, #b162a5, #f6f6f6);
+  color: #f6f6f6;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(40, 44, 52, 0.8);
+}
+/*# sourceMappingURL=list.css.map */

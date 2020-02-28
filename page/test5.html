@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    /*
+        可以说 "JavaScript 对象是变量的容器"。
+        通常认为 "JavaScript 对象是键值对的容器"。
+         键值对通常写法为 name : value (键与值以冒号分割)。
+         键值对在 JavaScript 对象通常称为 对象属性。
+        JavaScript 对象是属性变量的容器
+        */
+    //访问对象属性的两种方式
+    //  对象名.属性名  或  对象名[属性名]
+    var person = {
+      name: 'John',
+      age: 31,
+      favColor: 'green',
+      height: 183
+    }
+    var x = person.age
+    document.write(x)
+    var y = person['age']
+    document.write(y)
+
+    var course = { name: 'nt', lessons: 54 }
+    console.log(course.name.length) // -> 2
+
+    // 当创建了一个对象后，可以用 . 或 [] 来更新对象的属性
+
+    var dog = {
+      name: 'xh',
+      legs: 4,
+      tails: 1,
+      color: 'yellow'
+    }
+    dog.name = 'happy'
+    dog['name'] = 'happy'
+
+    //添加属性
+    dog.bark = 'bow-wow'
+    //等于  dog['bark']='bow-wow';
+
+    //删除属性
+    delete dog['tails']
+    //等价于   delete dog.tails
+
+    var c2 = dog['tails'] // c2等于 undefined
+    document.write(dog)
+    // 对象方法是一个包含函数定义的属性，可以通过以下语法来调用方法
+
+    var message = 'Hello world'
+    var x = message.toUpperCase()
+    document.write(message + '<br>')
+    document.write(x + '<br>')
+
+    var a = 'age'
+    var myObj = {
+      name: 'Loen',
+      age: '28',
+      eat: function() {
+        return "I'm eating"
+      }
+    }
+    document.write(myObj['name']) //  Loen
+    document.write(myObj[a])
+    // 可以用变量访问对象属性, 这里返回 28
+    document.write(myObj['eat']())
+    // 返回 I'm eating
+
+    //   js使用函数来构造对象
+
+    function person(firstname, lastname, age, eyecolor) {
+      this.firstname = firstname
+      this.lastname = lastname
+      this.age = age
+      this.eyecolor = eyecolor
+    }
+    var me = new person('pang', 'pang', 20, 'black')
+    document.write(me.firstname)
+    document.write(me.age)
+    document.write(me.lastname)
+    document.write(me.eyecolor)
+
+    // 使用英文大括号 {} 创建单个对象
+    var pang = { name: 'pang', age: 20 }
+
+    //创建对象函数:
+
+    // functionName:function(){
+    //     alert("对象的方法")
+    // }
+    //访问对象函数
+    ObjectName.methodName()
+
+    // this 关键词是当前对象的引用，可以使用 this 来访问对象属性和方法。
+    function person(name, age) {
+      this.name = name
+      this.age = age
+      this.name = function(name) {
+        this.name = name
+      }
+    }
+    var p = new person('pang', 28)
+    p.changeName('dapang')
+    document.write(p.name)
+    //  也可以在构造函数外部定义一个函数，通过函数名关联到对象的属性上:
+    function person2(name, age) {
+      ;(this.name = name), (this.age = age), (this.birth = birthMethod) //关联birthMethod方法
+    }
+    function birthMethod() {
+      // 将函数关联到对象属性时不需要写括号
+      return new Date().getFullYear - this.age
+    }
+    document.write(person2.birth)
+  </script>
+  <body>
+    5555
+  </body>
+</html>

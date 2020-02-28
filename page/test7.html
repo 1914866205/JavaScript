@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js核心对象</title>
+  </head>
+  <script>
+    //string对象用于处理文本
+    //创建方法  new String
+    var txt = new String('  string wew')
+    var txt2 = 'string'
+    var str = 'Hello'
+    //转小写
+    document.write('转小写' + str.toLocaleLowerCase())
+    //转大写
+    document.write('转大写' + str.toLocaleUpperCase())
+    //去掉两边空白
+    document.write('去掉两边空白' + str.trim())
+    //返回指定字符串首次出现的位置
+    document.write('返回指定字符串首次出现的位置' + str.indexOf('el'))
+    //el替换成hh
+    document.write('el替换成hh' + str.replace('hh', 'el'))
+    //正则匹配l并替换为m
+    document.write('正则匹配l并替换为m' + str.replace(/l/g, 'm'))
+    //截取索引三之后
+    document.write('截取索引三之后' + str.substring(3) + '<br>')
+    //截取三到7
+    document.write('截取三到7' + str.substring(3, 7) + '<br>')
+
+    /*
+                                                Window 对象表示浏览器中打开的窗口。 如果文档包含框架（ 或 标签），
+                                                浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一 个额外的 window 对象。
+                                                */
+    /*注意： 没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象*/
+    //window 作为全局变量，代表了脚本正在运行的窗口，暴露给Javascript代码。
+
+    document.write('返回窗口的文档显示区的高度' + window.innerHeight)
+    document.write('返回窗口的文档显示区的宽度' + window.innerWidth)
+    document.write('返回窗口的外部宽度，包含工具条与滚动条' + window.outerWidth)
+    document.write('返回相对于屏幕窗口的x坐标' + window.screenLeft)
+    document.write('返回相对于屏幕窗口的y坐标' + window.screenTop)
+    window.alert('1号警告框')
+    alert('2号警告框')
+    function open_win() {
+      window.open('http://www.baidu.com')
+    }
+
+    function openWin() {
+      myWindow = window.open('', '', 'width=200,height=100')
+      myWindow.document.write("<p>这是'我的窗口'</p>")
+      //把键盘的焦点给这个窗口
+      myWindow.focus()
+    }
+
+    /*
+                                                setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。
+                                                提示： 1000 毫秒 = 1 秒。
+                                                提示： 如果你只想重复执行可以使用 setInterval() 方法。
+                                                 提示： 使用 clearTimeout() 方法来阻止函数的执行。
+                                                */
+
+    setTimeout(function() {
+      alert('Hello')
+    }, 3000)
+
+    // 打开一个新窗口，3 秒后将该窗口关闭
+
+    var newWindow = window.open('', '', 'width=200, height=100')
+    newWindow.document.write("<p>这是一个新窗口'</p>")
+    setTimeout(function() {
+      newWindow.close()
+    }, 3000)
+
+    // 使用 clearTimeout() 来阻止函数的执行
+    var myVar
+    function myFunction() {
+      myVar = setTimeout(function() {
+        alert('Hello')
+      }, 3000)
+    }
+
+    function myStopFunction() {
+      clearTimeout(myVar)
+    }
+
+    // JSON (英文全称 JavaScript Object Notation)
+    // 是用于存储和传输数据的格式。 JSON 通常用于服务端向网页传递数据 。
+    // JSON 是一种轻量级的数据交换格式。
+    // JSON 使用 JavaScript 语法，但是 JSON 格式仅仅是一个文本。
+    // 文本可以被任何编程语言读取及作为数据格式传递
+    {
+      'sites'[
+        ({ name: 'baidu', url: 'www.baidu.com' },
+        { name: 'Google', url: 'www.google.com' },
+        { name: 'Taobao', url: 'www.taobao.com' })
+      ]
+    }
+
+    /*
+                                                   ###JSON 语法规则
+                                                   数据为 键/值 对。
+                                                   数据由逗号分隔。
+                                                    大括号保存对象
+                                                    方括号保存数组
+                                                                  */
+    //   JSON.parse() 方法用于将一个 JSON 字符串转换为对象。
+    JSON.parse(text, reviver)
+    /*
+                                      参数说明：
+                                    text: 必需， 一个有效的 JSON 字符串。
+                                    reviver: 可选，一个转换结果的函数，
+                                    将为对象的每个成员调用此函数。
+                                    返回给定 JSON 字符串转换后的对象。
+                                      */
+    var text =
+      '{"employees":[' +
+      '{"name":"baidu","site":"http://www.baidu.com" },' +
+      '{"name":"Google","site":"http://www.Google.com" },' +
+      '{"name":"Taobao","site":"http://www.taobao.com" }]}'
+    obj = JSON.parse(text)
+    document.getElementById('demo').innerHTML = obj.employees[1].name + ' ' + obj.employees[1].site
+    //带 reviver 的案例
+    JSON.parse('{"p": 5, "s": 1.5, "t": -3}', function(key, value) {
+      if (key === '') return value // 如果到了顶层，则直接返回属性值，
+      return value * 2 // 否则将属性值变为原来的 2 倍。
+    }) // {"p": 10, "s": 3, "t": -6}
+    JSON.parse('{"1": 1, "2": 2,"3": {"4": 4, "5": {"6": 6}}}', function(k, v) {
+      document.write(k) // 输出当前的属性名，从而得知遍历顺序是从内向外的， // 后一个属性名会是个空字符串。
+      return v // 返回原始属性值，相当于没有传递 reviver 参数。
+    })
+
+    //JSON.parse() 不允许用逗号作为结尾
+    // 以下均抛出动态错误
+    // JSON.parse("[1, 2, 3, 4, ]");
+    // JSON.parse('{"foo" : 1, }');
+
+    //JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符串。
+    //JSON.stringify(value, replacer, space)
+
+    // value: 必需， 要转换的 JavaScript 值（通常为对象或数组）。
+    // replacer:可选。用于转换结果的函数或数组。
+    //如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。
+    // 使用返回值而不是原始值。如果此函数返回 undeﬁned，则排除成员。
+    // 根对象的键是一个空字符串：""。
+    // 如果 replacer 是一个数组，则仅转换该数组中具有键值的成员。
+    // 成员的转换顺序与键在数组中的顺序一样。
+    //  space: 可选，文本添加缩进、空格和换行符，如果 space 是一个数字，则返回值文本在每个级别
+    // 缩进指定数目的空格，如果 space 大于 10，则文本缩进 10 个空格。space 也可以使用非数字，
+    // 如：\t。 返回包含 JSON 文本的字符串
+
+    var str = { name: 'baidu', site: 'http://www.baidu.com' }
+    str_pretty1 = JSON.stringify(str)
+    document.write('只有一个参数情况：')
+    document.write('<br>')
+    document.write('<pre>' + str_pretty1 + '</pre>')
+
+    document.write('<br>')
+    str_pretty2 = JSON.stringify(str, null, 4) //使用四个空格缩进
+    document.write('使用参数情况：')
+    document.write('<br>')
+    document.write('<pre>' + str_pretty2 + '</pre>') // pre 用于格式化输出
+
+    document.write(Math.PI) // -> 3.141592653589793
+    //  提示: Math 没有构造函数。没有必要先创建一个Math对象
+    // 计算一个数字的平方根
+    var number = Math.sqrt(4)
+    document.write(number) // -> 2
+    var n = prompt('请输入一个数字:', '')
+    var answer = Math.sqrt(n)
+    alert('数字' + n + ' 的平方根是: ' + answer)
+
+    // **Math.floor()** 返回小于或等于一个给定数字的最大整数。
+    // **Math.floor()** 向下取整
+
+    Math.floor(45.95) // 45
+    Math.floor(45.05) // 45
+    Math.floor(4) // 4
+    Math.floor(-45.05) // -46
+    Math.floor(-45.95) // -46
+    //   Math.random() 返回介于 0（包含） ~ 1（不包含） 之间的一个随机数
+    document.write('返回一个数字四舍五入后最接近的整数。' + Math.random() * 10 + 1)
+
+    //    Math.round()** 返回一个数字四舍五入后最接近的整数
+    x = Math.round(20.49) //20
+    x = Math.round(20.5) //21
+    x = Math.round(-20.5) //-20
+    x = Math.round(-20.51) //-21
+    //注意，与很多其他语言中的round()函数不同，
+    // Math.round()并不总是舍入到远离0的方向（尤其是在负数的小数部分恰好等于0.5的情况下）。
+
+    // Date对象使用
+    // 日期对象用于处理日期和时间。
+    // 日期由 年，月，日，时，分，秒和毫秒组成。
+    // 使用 new Date() , 将创建一个存储当前日期和时间的日期对象。
+
+    var d = new Date()
+    //d 存储了当前的日期和时间
+
+    // 初始化日期的其他方法允许从指定的日期和时间创建新的日期对象
+
+    document.write(' 毫秒' + new Date(milliseconds))
+    document.write('日期字符串' + new Date(dateString))
+    document.write('年，月，日， 时，分，秒和毫秒' + new Date(year, month, day, hours, minutes, seconds, milliseconds))
+
+    //avaScript日期以1970年01月01日00:00:00世界时（UTC）计算。一天包含 86400000 毫 秒
+
+    //Fri Jan 02 1970 08:00:00 GMT+0800 (中国标准时间)
+    var d1 = new Date(86400000)
+    document.write(d1)
+    //Thu Oct 19 2017 15:56:00 GMT+0800 (中国标准时间)
+    var d2 = new Date('October 19, 2017 15:56:00')
+    document.write(d2)
+    //Sat Jun 11 1988 11:42:00 GMT+0800 (中国标准时间)
+    var d3 = new Date(88, 5, 11, 11, 42, 0, 0)
+    document.write(d3)
+
+    //提示: JavaScript计数从0到11的月份。1月是0，12月是11。
+    // 日期对象是静态的，而不是动态的。
+    //  计算机时间正在往前走，但是日期对象一旦创建，日期就不会改变
+
+    var d = new Date()
+    var hours = d.getHours() //hours 等于当前的小时数值
+    document.write(hours)
+
+    function printTime() {
+      var d = new Date()
+      var hours = d.getHours()
+      var mins = d.getMinutes()
+      var secs = d.getSeconds()
+      document.body.innerHTML = hours + ':' + mins + ':' + secs
+    }
+    setInterval(printTime, 1000) // setInterval 第二个参数单位是 毫秒
+
+    /*
+    我们定义了一个 printTime 函数,通过 new Date() 生成当前时间的对象,
+    然后通过 getHours(),getMinutes(),getSeconds() 获取到当前的时,分,秒,并打印出来.
+    通过 setInterval 每隔1秒执行一次 printTime 函数
+    提示: innerHTML 属性设置或返回元素的HTML内容。在我们的例子中，我们正在改变我们文档体 的HTML内容。这将每秒覆盖内容，而不是重复打印到屏幕。
+
+    */
+
+    document.write()
+    document.write()
+    document.write()
+    document.write()
+    document.write()
+    document.write()
+    document.write()
+  </script>
+  <body></body>
+</html>

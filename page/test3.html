@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aaaaa</title>
+  </head>
+  <script>
+    // if-else 语句
+    var num = 10
+    if (num < 20) {
+      document.write('num的值小于20')
+    }
+
+    if (num == 10) {
+      document.write('值为10')
+    } else {
+      document.write('值不为10')
+    }
+
+    if (num == 10) {
+      document.write('值为10')
+    } else if (num == 5) {
+      document.write('值为5')
+    } else {
+      document.write('值不为10和5')
+    }
+
+    //switch 语句用于基于不同的条件来执行不同的动作
+    var n = 2
+    switch (n) {
+      case 1:
+        num
+        document.write('值为1')
+        break
+      case 2:
+        num
+        document.write('值为2')
+        break
+      case 3:
+        num
+        document.write('值为3')
+        break
+      default:
+        document.write('n与所有的case都不匹配')
+    }
+
+    function myFunction() {
+      var x
+      var d = new Date().getDay //获取周几的方法
+      switch (d) {
+        case 0:
+          x = '今天是星期日'
+          break
+        case 1:
+          x = '今天是星期一'
+          break
+        case 2:
+          x = '今天是星期二'
+          break
+        case 3:
+          x = '今天是星期三'
+          break
+        case 4:
+          x = '今天是星期四'
+          break
+        case 5:
+          x = '今天是星期五'
+          break
+        case 6:
+          x = '今天是星期六'
+          break
+      }
+      return x
+    }
+    alert(myFunction()) //  使用 alert 显示函数的返回值
+
+    var num = [1, 2, 3, 4]
+    for (var i = 0; i < num.length; i++) {
+      document.write(num[i] + '<br>')
+    }
+
+    var i = 0
+    for (; i < 4; ) {
+      document.write(i)
+      i++
+    }
+
+    //把数添加到数组
+
+    var arr = []
+    for (var i = 1; i < 10; i++) {
+      arr.push(i)
+    }
+
+    var i1 = 0
+    while (i1 < 2) {
+      i1++
+      document.write(i1)
+    }
+
+    var i2 = 5
+    do {
+      i2++
+      document.write(i2)
+    } while (i2 < 10)
+
+    while (i2 < 20) {
+      i2++
+      document.write(i2)
+      if ((i2 = 13)) {
+        continue
+      }
+      if (i2 == 15) {
+        document.write('i2=12,跳出')
+        break
+      }
+      alert('js执行完毕')
+    }
+  </script>
+  <body>
+    aaa
+  </body>
+</html>

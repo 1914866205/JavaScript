@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="js/demo.js">
+        /*
+
+        JavaScript 基本特点
+    JavaScript 是一种轻量级的编程语言。 JavaScript 是一种解释性脚本语言（代码不进行预编译） JavaScript 是可插入 HTML 页面的编程代码。 JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行
+        */
+
+
+        /*
+        JavaScript 组成部分
+    1. ECMAScript，描述了该语言的语法和基本对象。 2. 文档对象模型（DOM），描述处理网页内容的方法和接口。 3. 浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口。
+        */
+        alert('这是警告框')
+        document.write('将内容写到html文档')
+        document.write('<h1> Hello JavaScript!</h1>')
+        window.alert('警告框')
+
+        var d = getElementById('aa')
+        d.innerHtml('写到HTML元素')
+        console.log('写到控制台')
+
+        /*
+    下面的这些代码会输出一个标题和一个段落，
+    并将代表主页的开始
+    */
+        //输出标题
+        document.getElementById(('title'.innerHtml = '欢迎来到我的主页'))
+        //输出段落
+        document.getElementById('content').innerHTML = '这是我的第一个段落'
+  </script>
+  <body>
+    <div id="title"></div>
+    <div id="content"></div>
+  </body>
+</html>

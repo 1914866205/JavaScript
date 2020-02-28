@@ -1,0 +1,36 @@
+$pink: #ec407a;
+$blue: #34cedf;
+$orange: #e44d26;
+$green: #009688;
+$purple: #b162a5;
+$light: #f6f6f6;
+$grey: #dddddd;
+$dark: #282c34;
+
+$color-list: $pink $blue $orange $green $purple;
+
+$count: 5;
+
+$box-shadow: 0 0.5rem 1rem rgba($dark, 0.8);
+
+.list {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  background-color: $grey;
+  list-style-type: none;
+}
+
+@for $i from 1 to $count + 1 {
+  .item:nth-child(#{$i}) {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 80px;
+    line-height: 80px;
+    padding: 10px;
+    background-image: linear-gradient(to top right, nth($color-list, $i), $light);
+    color: $light;
+    box-shadow: $box-shadow;
+  }
+}

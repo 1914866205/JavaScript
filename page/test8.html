@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+  </head>
+  <style>
+    #container {
+       width: 600px;
+       height: 400px;
+       background: rgb(170, 199, 170);
+       position: relative;
+    }
+    #box {
+       width: 60px;
+       height: 60px;
+       background: rgb(211, 144, 144);
+       position: absolute;
+    }
+    /*
+    box元素在容器元素的内部。注意用于元素的 position 属性：
+容器是相对的，盒子是绝对的。这样我们才能创建相对于容器的动画
+
+    */
+  </style>
+  <script>
+    /*
+    使用 setInterval() 方法来实现创建一个定时器并调用一个以定义的
+     间隔（以毫秒为单位）反复更改属性的函数。
+    */
+
+    /* 创建一个每500毫秒调用一个 move() 函数的计时器 */
+    var t = setInterval(move, 500)
+    // 定义开始的位置
+    // var pos = 0 // 获取box元素
+    // var box = document.getElementById('box')
+    // function move() {
+    //   pos += 1
+    //   box.style.left = pos + 'px' //px = pixels
+    // }
+    //move() 函数在每次调用时将box元素的left属性增加1。
+    // 每10毫秒调用 move() 函数的定时器
+    // var t = setInterval(move, 10)
+    /*
+我们的盒子会一直向右移动，
+要在盒子到达容器的末端时停止动画，
+我们向 move() 函数添加 一个简单的检查，
+并使用 clearInterval() 方法来停止定时器
+*/
+
+    // function move() {
+    //     if(pos >= 540) {
+    //             clearInterval(t);
+    //           }  else {
+    //                 pos += 1;
+    //                 box.style.left = pos+"px";
+    //                }
+    //                 }
+
+    // 当箱子的 left 属性到值600时，盒子到达容器的末端，容器宽度为600px，盒子宽为60px
+
+    var pos = 0 // 盒子元素
+    var box = document.getElementById('box')
+    var t = setInterval(move, 10)
+    function move() {
+      if (pos >= 540) {
+        clearInterval(t)
+      } else {
+        pos += 1
+        box.style.left = pos + 'px'
+      }
+    }
+    /*
+    JavaScript 能够改变页面中的所有 HTML 元素
+     JavaScript 能够改变页面中的所有 HTML 属性 
+     JavaScript 能够改变页面中的所有 CSS 样式
+      JavaScript 能够对页面中的所有事件做出反应
+    */
+    document.body.innerHTML = 'Some text'
+    //通过 id 找元素
+    document.write(document.getElementById(id))
+    //通过 类 找元素
+    document.getElementsByClassName(name)
+    document.write(document.getElementById(id))
+    //通过 标签 找元素
+    document.getElementsByTagName(name)
+    document.write(document.getElementById(id))
+    // getElementById 方法用于选择 id="demo" 的元素并更改其内容：
+    var elem = document.getElementById('demo')
+    elem.innerHTML = 'Hello World'
+
+    //     getElementsByClassName() 方法通过类名查找所有元素，并将其作为数组返回。
+    //     例如HTML页面包含三个元素与 class="demo"，以下代码将返回所有这些元素作为一个数组：
+
+    var arr = document.getElementsByClassName('demo')
+    //访问第二个元素
+    arr[1].innerHTML = 'Hi I am Peter'
+    // getElementsByTagName 方法返回指定标签名称的所有元素,作为数组返回
+
+    var arr = document.getElementsByTagName('p')
+    for (var x = 0; x < arr.length; x++) {
+      arr[x].innerHTML = 'Hi there'
+    }
+    //通常使用数组的length属性循环遍历上面例子中的所有选择的元素
+
+    /*
+DOM中的每个元素都有一组属性和方法，它们提供有关它们在DOM中的关系的信息：
+element.childNodes 返回一个元素的子节点的数组。
+ element.ﬁrstChild 返回元素的第一个子节点。
+element.lastChild 返回元素的后一个子节点。 
+element.hasChildNodes 如果元素有任何子节点，则返回 true，否则为 false 。
+ element.nextSibling 返回相同树级别的下一个节点。
+element.previousSibling 返回在同一树级别的上一个节点。
+ element.parentNode 返回元素的父节点。
+*/
+    var a = document.getElementById('demo')
+    var arr = a.childNodes
+    for (var x = 0; x < arr.length; x++) {
+      arr[x].innerHTML = '新的文本'
+    }
+
+    var el = document.getElementById('my-img') // 通过id="my-img"获取元素
+    el.src = '10.jpg'
+    //   可以使用JavaScript更改元素的所有属性
+    var el = document.getElementsByTagName('a')
+    el[0].href = 'https://www.google.cn'
+    el[0].innerHTML = 'google'
+    /*
+上面的代码改变了div元素的文本颜色和宽度。 
+提示: 所有CSS属性都可以使用JavaScript进行设置和修改。
+请记住，不能在属性名称中使用破折号（ - ）：
+这些替换为驼峰写法，其中复合词以大写字母开头
+ 比如: background-color属性应该被写为 backgroundColor
+*/
+
+    var x = document.getElementById('demo2')
+    x.style.color = '6600FF'
+    x.style.width = '100px'
+
+    /*
+ 添加和移除元素 
+使用以下方法创建新节点：
+element.cloneNode() 克隆元素并返回结果节点。
+document.createElement(element) 创建一个新的元素节点。
+document.createTextNode(text) 创建一个新的文本节点
+*/
+
+    var node = document.createTextNode('一些新的文本')
+
+    /*
+这将创建一个新的文本节点，但它将不会出现在文档中，
+使用以下方法之一将其附加到现有元素：
+element.appendChild(newNode) 将一个新的子节点添加到元素作为后一个子节点。 
+element.insertBefore(node1, node2) 在节点2之前插入node1作为子节点
+*/
+
+
+//要删除HTML元素，必须选择元素的父项并使用 removeChild(node) 方法
+
+ var parent = document.getElementById("demo3");  
+var child = document.getElementById("p1"); 
+ parent.removeChild(child)
+/*
+会从页面中删除 id ="p1" 的段落。
+ 提示: 实现相同结果的另一种方法是使用 parentNode 属性
+ 来获取要删除的元素的父项：
+*/
+var child = document.getElementById("p1"); 
+child.parentNode.removeChild(child);
+/*
+替换元素 
+要替换HTML元素，使用 element.replaceChild(newNode,oldNode) 方法。
+*/
+
+// 创建一个替换现有 p1 段落的新段落元素
+var p = document.createElement("p"); 
+var node = document.createTextNode("这是新的文本");
+ p.appendChild(node);
+var parent = document.getElementById("demo4");
+ var child = document.getElementById("p1");
+  parent.replaceChild(p, child);
+  </script>
+  <body>
+    <a href="http://www.baidu.com">百度</a>
+    <div id="container">
+      <div id="box"></div>
+    </div>
+    <div class="demo">
+      <span class="demo">Hi I'm Loen!</span>
+    </div>
+    <div id="demo2" style="width:200px">一些文本</div>
+    <p>hi</p>
+    <p>hello</p>
+    <p>hi</p>
+    <p class="demo">This is a paragraph</p>
+    <div id="demo">
+      <p>一些文本</p>
+      <p>另一些文本</p>
+    </div>
+    <img id="my-img" src="06.jpg" alt="" />
+    <div id="demo3">  <p id="p1">这是一个段落.</p> 
+         <p id="p2">这是另外一个段落.</p> 
+        </div>
+        <p id="demo4">  
+            <p id="p1">这是一个段落</p>  
+            <p id="p2">这是另一个段落</p>
+     </p>
+
+  </body>
+</html>

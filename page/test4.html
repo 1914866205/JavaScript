@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test4</title>
+    <script>
+                  function f1(arguments) {
+                    alert("f1执行");
+                  }
+                  //函数调用
+                  f1();
+                  //JavaScript 函数对参数的值(arguments)没有进行任何的检查。就是说你放什么类型的参数，都可以，
+                  // 不需要像Java那样， 需要对类型进行声明
+                  function f2(a,b){
+                    return a*b;
+                  }
+                  var res=f2(2,5);//函数调用，返回6
+                  console.log(res);
+            //函数显示调用
+                  functionName(parameter1, parameter2, parameter3) {  
+                     // 代码放这里
+                    }
+
+                    //函数隐藏参数(arguments)是函数调用时传递给函数真正的值（类似Java中的实参概念
+
+                    function sum(){  
+                        return arguments[0] + arguments[1];
+                       }
+                      //  使用 arguments 获取隐藏参数, 进行操作
+                       sum(1, 2)
+
+
+                       /*
+                       2.2 参数规则
+            JavaScript 函数定义时参数没有指定数据类型。
+            JavaScript 函数对隐藏参数(arguments)没有进行检测。
+             JavaScript 函数对隐藏参数(arguments)的个数没有进行检测
+
+                       */
+      //如果缺参数，则缺少的值为undefined，这表示未赋值
+                       function sayHello(name, age) {
+                           console.log(name + '年龄是:' + age + '岁')
+                           }
+                             sayHello('John', 20) //输出: John年龄是:20岁
+                                sayHello(20, 'John')  //输出: 20年龄是:John岁
+        /*
+        作用域是可访问变量的集合。在 JavaScript 中
+      对象和函数同样也是变量。
+       作用域为可访问变量，对象，函数的集合。
+        函数作用域: 作用域在函数内修改。
+
+        */
+
+
+        //局部变量：只能在函数内部访问
+        //因为局部变量只作用于函数内，所以不同的函数可以使用相同名称的变量。
+      // 局部变量在函数开始执行时创建，函数执行完后局部变量会自动销毁
+        //局部变量的优先级高于同名的全局变量
+        function myFunction() {  
+              // car 变量为局部变量  
+                 var car = "小众";
+              }
+
+
+      //如果变量在函数内没有声明（没有使用 var 关键字）
+      // 该变量为全局变量
+        var quanjubialiang;
+        function yourFunction() {  
+              // 全局变量  
+                 quanjubialiang = "大众";
+              }
+
+        //在 HTML 中, 全局变量是 window 对象: 所有数据变量都属于 window 对象。
+        var carName;
+        //此处可使用 window.carName
+         function myFunction() {    
+           window.carName = '大众'
+            }
+
+        /*
+        变量生命周期
+      JavaScript 变量生命周期在它声明时初始化。
+      局部变量在函数执行完毕后销毁。
+      全局变量在页面关闭后销毁。
+       函数参数只在函数内起作用，是局部变量
+        */
+
+        function sum(a,b){
+          return a+b;
+        }
+        /*
+        当JavaScript执行完 return 语句时，该函数停止执行。
+       如果没有从函数返回任何内容，它将返回 undeﬁned 。
+        */
+        document.write(sum(2,9));
+
+      //当弹出警报框时，用户必须单击“确定”继续。警报功能采用单个参数，即弹出框中显示的文本
+      alert("我是警告框");
+
+      var user=prompt("我是提示框");
+      alert(user);
+
+      var result =confirm("我是确认框");
+      if(result==true){
+        alert("dei");
+      }else{
+        alert(cuo);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
